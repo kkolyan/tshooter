@@ -1,0 +1,32 @@
+<protocol xmlns="http://kkolyan.net/schema/protocol"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://kkolyan.net/schema/protocol protocol.xsd" typeIdType="byte">
+    <namespace name="net.kkolyan.tshooter.protocol.messages">
+        <type name="JoinRoom">
+            <value name="roomIndex" type="int"/>
+        </type>
+        <type name="RoomState">
+            <value name="name" type="String"/>
+            <value name="index" type="int"/>
+            <sequence name="players" type="Player" lengthType="short"/>
+            <sequence name="messages" type="String" lengthType="byte"/>
+            <sequence name="ports" type="int" lengthType="byte"/>
+        </type>
+        <type name="Player">
+            <value name="index" type="int"/>
+            <value name="name" type="String"/>
+            <value name="hp" type="float"/>
+            <value name="position" type="Vector3f"/>
+            <sequence name="weapons" type="Weapon" lengthType="byte"/>
+        </type>
+        <type name="Weapon">
+            <value name="damage" type="float"/>
+            <value name="name" type="String"/>
+        </type>
+        <type name="Vector3f">
+            <value name="x" type="float"/>
+            <value name="y" type="float"/>
+            <value name="z" type="float"/>
+        </type>
+    </namespace>
+</protocol>
